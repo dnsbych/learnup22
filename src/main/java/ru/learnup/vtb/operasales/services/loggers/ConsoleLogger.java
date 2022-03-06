@@ -1,8 +1,7 @@
-package ru.learnup.vtb.opersales.learnup19.services;
+package ru.learnup.vtb.operasales.services;
 
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
-import ru.learnup.vtb.opersales.learnup19.services.interfaces.Logger;
+import ru.learnup.vtb.operasales.services.interfaces.Logger;
 
 @Component
 public class ConsoleLogger implements Logger {

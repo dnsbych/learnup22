@@ -1,7 +1,7 @@
-package ru.learnup.vtb.opersales.learnup19.events;
+package ru.learnup.vtb.opersales.events;
 
 import org.springframework.context.ApplicationEvent;
-import ru.learnup.vtb.opersales.learnup19.model.Ticket;
+import ru.learnup.vtb.opersales.model.Ticket;
 
 public class BuyEvent extends ApplicationEvent {
 

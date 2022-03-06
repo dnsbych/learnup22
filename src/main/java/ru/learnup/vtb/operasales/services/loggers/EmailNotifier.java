@@ -1,11 +1,9 @@
-package ru.learnup.vtb.opersales.learnup19.services;
+package ru.learnup.vtb.operasales.services;
 
-import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-import ru.learnup.vtb.opersales.learnup19.events.BuyEvent;
-import ru.learnup.vtb.opersales.learnup19.model.Ticket;
+import ru.learnup.vtb.operasales.events.BuyEvent;
+import ru.learnup.vtb.operasales.model.Ticket;
 
 @Component
 public class EmailNotifier implements ApplicationListener<BuyEvent> {

@@ -1,4 +1,4 @@
-package ru.learnup.vtb.opersales.learnup19.services;
+package ru.learnup.vtb.opersales.services;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -6,10 +6,9 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Service;
-import ru.learnup.vtb.opersales.learnup19.annotations.Notifiable;
-import ru.learnup.vtb.opersales.learnup19.events.BuyEvent;
-import ru.learnup.vtb.opersales.learnup19.model.Ticket;
-import ru.learnup.vtb.opersales.learnup19.services.interfaces.Logger;
+import ru.learnup.vtb.opersales.annotations.Notifiable;
+import ru.learnup.vtb.opersales.model.Ticket;
+import ru.learnup.vtb.opersales.services.interfaces.Logger;
 
 @Service
 @Data
@@ -19,7 +18,6 @@ public class TicketService implements ApplicationContextAware {
     Logger logger;
     ApplicationContext ctx;
 
-    @Notifiable
     public int byTicket(Ticket t) {
         //logger.print("Купили билет");
 

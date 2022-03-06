@@ -1,10 +1,10 @@
-package ru.learnup.vtb.opersales.learnup19;
+package ru.learnup.vtb.operasales;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Learnup19ApplicationTests {
+class OperaSalesApplicationTests {
 
     @Test
     void contextLoads() {

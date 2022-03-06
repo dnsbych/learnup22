@@ -1,4 +1,4 @@
-package ru.learnup.vtb.opersales.learnup19.aspects;
+package ru.learnup.vtb.opersales.aspects;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class NotifyAspect {
 
-    @Pointcut("@annotation(ru.learnup.vtb.opersales.learnup19.annotations.Notifiable)")
+    @Pointcut("@annotation(ru.learnup.vtb.opersales.annotations.Notifiable)")
     public void notifyEmail() {
     }
 
