@@ -1,4 +1,4 @@
-package ru.learnup.vtb.operasales.services;
+package ru.learnup.vtb.operasales.services.loggers;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;

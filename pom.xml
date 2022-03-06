@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ru.learnup.vtb.opersales</groupId>
-    <artifactId>learnup18</artifactId>
+    <artifactId>operasales</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>learnup18</name>
-    <description>learnup18</description>
+    <name>operasales</name>
+    <description>operasales</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -23,9 +23,9 @@
         </dependency>
 
         <dependency>
-            <groupId>cn.itlym.shoulder</groupId>
+            <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>0.1</version>
+            <version>1.18.22</version>
         </dependency>
 
         <dependency>
@@ -38,6 +38,19 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.25</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>

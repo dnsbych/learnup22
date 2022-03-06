@@ -1,4 +1,4 @@
-package ru.learnup.vtb.opersales.services;
+package ru.learnup.vtb.operasales.services;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -6,9 +6,11 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Service;
-import ru.learnup.vtb.opersales.annotations.Notifiable;
-import ru.learnup.vtb.opersales.model.Ticket;
-import ru.learnup.vtb.opersales.services.interfaces.Logger;
+import org.springframework.transaction.TransactionManager;
+import org.springframework.transaction.annotation.Transactional;
+import ru.learnup.vtb.operasales.repository.entities.TicketEntity;
+import ru.learnup.vtb.operasales.repository.interfaces.TicketRepository;
+import ru.learnup.vtb.operasales.services.interfaces.Logger;
 
 @Service
 @Data
@@ -17,17 +19,14 @@ public class TicketService implements ApplicationContextAware {
 
     Logger logger;
     ApplicationContext ctx;
+    TicketRepository repository;
 
-    public int byTicket(Ticket t) {
-        //logger.print("Купили билет");
-
-        //ctx.publishEvent(new BuyEvent(t));
-
-        return 0;
+    public void byTicket(TicketEntity t) {
+        repository.save(t);
     }
 
-    public boolean returnTicket() {
-        return true;
+    public void returnTicket(Long id) {
+        repository.deleteById(id);
     }
 
     @Override

@@ -1,8 +1,8 @@
-package ru.learnup.vtb.opersales.config;
+package ru.learnup.vtb.operasales.config;
 
 import org.springframework.context.annotation.Bean;
-import ru.learnup.vtb.opersales.services.ConsoleLogger;
-import ru.learnup.vtb.opersales.services.interfaces.Logger;
+import ru.learnup.vtb.operasales.services.loggers.ConsoleLogger;
+import ru.learnup.vtb.operasales.services.interfaces.Logger;
 
 //@Configuration
 public class LoggerConfig {

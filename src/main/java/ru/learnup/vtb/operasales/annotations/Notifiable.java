@@ -1,4 +1,4 @@
-package ru.learnup.vtb.opersales.annotations;
+package ru.learnup.vtb.operasales.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

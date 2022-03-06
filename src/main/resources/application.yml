@@ -3,5 +3,8 @@ spring:
     url:  "jdbc:mysql://localhost:3306/java_test?serverTimezone=UTC"
     username: "root"
     password: ""
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+jpa:
+  show-sql: true
 

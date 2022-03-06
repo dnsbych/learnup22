@@ -1,4 +1,4 @@
-package ru.learnup.vtb.opersales.model;
+package ru.learnup.vtb.operasales.model;
 
 
 import lombok.AllArgsConstructor;

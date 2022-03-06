@@ -3,9 +3,13 @@ package ru.learnup.vtb.operasales.repository.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
+import org.hibernate.annotations.Proxy;
+import org.hibernate.mapping.Set;
+import ru.learnup.vtb.operasales.model.Ticket;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.List;
 
 
 @AllArgsConstructor
@@ -13,12 +17,11 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "events")
-public class EventsEntity {
+@Proxy(lazy=false)
+public class EventEntity {
 
-    @javax.persistence.Id
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public void setId(Long id) {
@@ -29,6 +32,25 @@ public class EventsEntity {
         return id;
     }
 
+//    Exception in thread "main" org.hibernate.LazyInitializationException: could not initialize proxy
+//    Видимо в Mysql 5 не работает
+    @OneToMany(mappedBy = "event", fetch = FetchType.EAGER)
+    private Collection<TicketEntity> tickets;
+
+
     @Column(name = "name")
     private String name;
+
+
+    @Override
+    public String toString() {
+
+        StringBuilder sb = new StringBuilder(String.format("%s (%d)\n", name, id));
+
+        for (TicketEntity ticket: tickets) {
+            sb.append(ticket).append("\n");
+        }
+
+        return sb.toString();
+    }
 }

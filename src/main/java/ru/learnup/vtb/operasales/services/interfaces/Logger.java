@@ -1,4 +1,4 @@
-package ru.learnup.vtb.opersales.services.interfaces;
+package ru.learnup.vtb.operasales.services.interfaces;
 
 public interface Logger {
 

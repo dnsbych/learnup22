@@ -4,8 +4,9 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import ru.learnup.vtb.operasales.model.Event;
-import ru.learnup.vtb.operasales.model.Ticket;
+import org.springframework.stereotype.Service;
+import ru.learnup.vtb.operasales.repository.entities.EventEntity;
+import ru.learnup.vtb.operasales.repository.interfaces.EventRepository;
 import ru.learnup.vtb.operasales.services.interfaces.Logger;
 
 import javax.annotation.PostConstruct;
@@ -14,39 +15,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class OperaSales implements ApplicationContextAware {
+@Service
+public class EventService implements ApplicationContextAware {
 
     private Logger logger;
     private ApplicationContext ctx;
+    private EventRepository repository;
 
     @Autowired
-    public OperaSales(Logger logger) {
+    public EventService(Logger logger, EventRepository repository) {
         this.logger = logger;
+        this.repository = repository;
     }
 
 
-    public Event addEvent(Event e) {
-        //logger.print("Добавляем мероприятие " + e.getName());
-        //logger.print(ctx.getMessage("hello", new Object[]{name}, Locale.US));
+    public void addEvent(EventEntity e) {
+        repository.save(e);
+    }
 
-        return e;
+    public EventEntity getEventById(Long id)
+    {
+        return repository.getById(id);
     }
 
 
-    public Event editEvent(Event e) {
-        return e;
+    public void editEvent(EventEntity e) {
+        repository.save(e);
     }
 
-    public void deleteEvent() {
-
+    public void deleteEvent(Long id) {
+        repository.deleteById(id);
     }
 
-    public List<Ticket> getList() {
+    public List<EventEntity> getList() {
 
-        List<Ticket> ticketList = new ArrayList<Ticket>();
-        ticketList.add(new Ticket(1, 100, "Тестовое мероприятие"));
-
-        return ticketList;
+        return repository.findAll();
     }
 
     @PostConstruct
