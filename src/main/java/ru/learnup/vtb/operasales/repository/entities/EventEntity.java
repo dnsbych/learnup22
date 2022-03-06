@@ -31,9 +31,7 @@ public class EventEntity {
     public Long getId() {
         return id;
     }
-
-//    Exception in thread "main" org.hibernate.LazyInitializationException: could not initialize proxy
-//    Видимо в Mysql 5 не работает
+    
     @OneToMany(mappedBy = "event", fetch = FetchType.EAGER)
     private Collection<TicketEntity> tickets;
 
