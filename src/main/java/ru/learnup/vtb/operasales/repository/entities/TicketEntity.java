@@ -3,7 +3,6 @@ package ru.learnup.vtb.operasales.repository.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 
@@ -12,11 +11,11 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "tickets")
-@Proxy(lazy=false)
 public class TicketEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "tickets_seq", sequenceName = "tickets_seq")
     private Long id;
 
     @Column(name = "price")
@@ -27,6 +26,11 @@ public class TicketEntity {
     @ManyToOne
     private EventEntity event;
 
+    public TicketEntity(Long eventId, int price) {
+        this.event = new EventEntity();
+        this.event.setId(eventId);
+        this.price = price;
+    }
 
     public void setId(Long id) {
         this.id = id;

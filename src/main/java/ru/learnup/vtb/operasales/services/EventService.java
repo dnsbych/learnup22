@@ -28,9 +28,15 @@ public class EventService implements ApplicationContextAware {
         this.repository = repository;
     }
 
+    public List<EventEntity> filteredRes1(String s)
+    {
+        return repository.getFilter1(s);
+    }
 
-    public void addEvent(EventEntity e) {
-        repository.save(e);
+
+    public List<EventEntity> getList() {
+
+        return repository.findAll();
     }
 
     public EventEntity getEventById(Long id)
@@ -38,6 +44,9 @@ public class EventService implements ApplicationContextAware {
         return repository.getById(id);
     }
 
+    public void addEvent(EventEntity e) {
+        repository.save(e);
+    }
 
     public void editEvent(EventEntity e) {
         repository.save(e);
@@ -47,10 +56,6 @@ public class EventService implements ApplicationContextAware {
         repository.deleteById(id);
     }
 
-    public List<EventEntity> getList() {
-
-        return repository.findAll();
-    }
 
     @PostConstruct
     public void init() {
@@ -65,5 +70,9 @@ public class EventService implements ApplicationContextAware {
     @Override
     public void setApplicationContext(ApplicationContext ctx) throws BeansException {
         this.ctx = ctx;
+    }
+
+    public List<EventEntity> getEventsOrderById() {
+        return repository.getAllOrderById();
     }
 }

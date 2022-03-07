@@ -17,14 +17,17 @@ public class OperaSalesApplication {
         final ConfigurableApplicationContext ctx = SpringApplication.run(OperaSalesApplication.class, args);
 
 
-       // ctx.getBean(TicketService.class).byTicket(new TicketEntity(null, 100, 1, null));
-        //ctx.getBean(TicketService.class).returnTicket(2L);
+        ctx.getBean(TicketService.class).byTicket(new TicketEntity(3L, 100));
+//        ctx.getBean(TicketService.class).returnTicket(2L);
 
+//        ctx.getBean(EventService.class).addEvent(new EventEntity("Второе мероприятие"));
+//        ctx.getBean(EventService.class).editEvent(new EventEntity(3L, "Третье мероприятие"));
 //        List<EventEntity> list = ctx.getBean(EventService.class).getList();
 //        System.out.println(list);
 
 
-        EventEntity e = ctx.getBean(EventService.class).getEventById(1L);
+//        EventEntity e = ctx.getBean(EventService.class).getEventById(1L);
+        List<EventEntity> e = ctx.getBean(EventService.class).getEventsOrderById();
         System.out.println(e);
 
     }
